@@ -1,6 +1,6 @@
 const http = require("http");
 
-const PORT = process.env.PORT || 3000; // Use environment variable if available
+const PORT = process.env.PORT || 4000; // Use environment variable if available
 const HOST = "0.0.0.0"; // Ensure it binds to all interfaces
 
 const server = http.createServer((req, res) => {

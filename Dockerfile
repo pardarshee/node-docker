@@ -17,7 +17,7 @@ RUN npm install --omit=dev
 COPY . .
 
 # Expose the port (Coolify/Docker can override)
-ARG PORT=4000
+ARG PORT=3000
 EXPOSE $PORT
 
 # Set environment variables for Coolify
