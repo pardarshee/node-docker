@@ -16,11 +16,12 @@ RUN npm install --omit=dev
 # Copy the rest of the application files
 COPY . .
 
-# Expose the port the app runs on
-EXPOSE 3000
+# Expose the port (Coolify/Docker can override)
+ARG PORT=3000
+EXPOSE $PORT
 
 # Set environment variables for Coolify
 ENV NODE_ENV=production
 
-# Start the application
-CMD ["node", "server.js"]
+# Start the application dynamically
+CMD ["sh", "-c", "node server.js"]
