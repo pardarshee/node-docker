@@ -1,6 +1,6 @@
 const http = require("http");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const SECRET_MESSAGE = process.env.MY_SECRET || "No env variable set";
 
 const server = http.createServer((req, res) => {
