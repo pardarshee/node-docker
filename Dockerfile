@@ -24,4 +24,3 @@ EXPOSE 6000
 
 # Start the application
 CMD ["node", "index.js"]
-f
