@@ -1,27 +1,20 @@
-# Use an official Node.js runtime as the base image
-FROM node:20-alpine
+# Use official Node.js image
+FROM node:18
 
-# Install curl for health checks
-RUN apk add --no-cache curl
-
-# Set the working directory inside the container
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json first to leverage Docker's caching
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install --omit=dev
 
-# Copy the rest of the application files
+# Copy the rest of the app files
 COPY . .
 
-# Expose the port (Coolify/Docker can override)
-ARG PORT=4000
-EXPOSE $PORT
+# Expose the port your app runs on
+EXPOSE 3000
 
-# Set environment variables for Coolify
-ENV NODE_ENV=production
-
-# Start the application dynamically
-CMD ["sh", "-c", "node server.js"]
+# Start the application
+CMD ["node", "index.js"]
