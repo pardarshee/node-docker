@@ -13,6 +13,9 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install --omit=dev
 
+# Ensure dotenv is installed
+RUN npm list dotenv || npm install dotenv
+
 # Copy the rest of the app files
 COPY . .
 
@@ -21,3 +24,4 @@ EXPOSE 6000
 
 # Start the application
 CMD ["node", "index.js"]
+f
