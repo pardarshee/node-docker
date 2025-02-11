@@ -1,6 +1,9 @@
 # Use official Node.js image
 FROM node:18
 
+# Install curl for health check
+RUN apt-get update && apt-get install -y curl
+
 # Set working directory inside the container
 WORKDIR /app
 
